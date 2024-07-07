@@ -1,0 +1,34 @@
+ useEffect(() => {
+    const token = sessionStorage.getItem('token');
+    if (!token) {
+      navigate('/');
+    } else {
+      setLoading(false);
+    }
+  }, [navigate]);
+  
+
+---------
+ useEffect(() => {
+    const token = sessionStorage.getItem('token');
+    const role = sessionStorage.getItem('role');
+  
+    console.log('Token:', token);
+    console.log('Role:', role);
+  
+    if (!token || role !== 'ROLE_Employee') {
+      console.log('Navigating to /sales...');
+      navigate('/sales');
+    } else {
+      setLoading(false); 
+    }
+  }, [navigate]);
+------------
+ useEffect(() => {
+    const role = sessionStorage.getItem('role');
+    if (!role) {
+      navigate('/');
+    } else {
+      setLoading(false);
+    }
+  }, [navigate]);
